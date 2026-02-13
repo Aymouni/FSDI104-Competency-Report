@@ -1,0 +1,57 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fef6e4;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #8bd3dd;
+  text-align: center;
+  padding: 20px;
+  color: #001858;
+}
+
+header h1 {
+  margin: 0;
+}
+
+table {
+  background-color: #ffffff;
+}
+
+table th, table td {
+  vertical-align: middle;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+.pets-section {
+  max-width: 500px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.pets-section h2 {
+  text-align: center;
+  color: #172c66;
+}
+
+#petsContainer {
+  margin-top: 20px;
+}
+
+ol {
+  padding-left: 20px;
+}
+
+li {
+  font-size: 18px;
+  padding: 6px 0;
+  color: #172c66;
+}
