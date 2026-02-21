@@ -31,3 +31,11 @@ function displaySalonInfo() {
 
 // Call function
 displaySalonInfo();
+
+// ===============
+// Dark Mode
+// ===============
+
+$("#changeModeButton").click(function(){
+    $("body").toggleClass("dark-mode");
+});

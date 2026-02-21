@@ -75,3 +75,11 @@ function deletePet(index) {
 
 // Load pets when page loads
 window.onload = displayPets;
+
+// ===============
+// Dark Mode
+// ===============
+
+$("#changeModeButton").click(function(){
+    $("body").toggleClass("dark-mode");
+});

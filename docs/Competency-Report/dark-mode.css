@@ -1,0 +1,19 @@
+/* Default/initial Mode - Light */
+:root {
+    --background-color: #fef6e4;
+    --title-color: #222222;
+}
+
+body {
+    background-color: var(--background-color);
+    transition: background-color 1s ease;
+}
+
+h1, h2, h3, p1 {
+    color: var(--title-color);
+}
+
+.dark-mode {
+    --background-color: #222222;
+    --title-color: #bbbedb;
+}
