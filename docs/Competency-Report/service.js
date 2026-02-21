@@ -80,7 +80,7 @@ $(document).ready(function () {
         }
     });
 
-    // Reset button fix
+    // Reset button
     $("#serviceForm").on("reset", function () {
         $("#serviceForm input").css({
             "border": "",
