@@ -82,4 +82,5 @@ window.onload = displayPets;
 
 $("#changeModeButton").click(function(){
     $("body").toggleClass("dark-mode");
+    
 });
