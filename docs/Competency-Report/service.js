@@ -9,17 +9,26 @@ const services = [];
 
 $(document).ready(function () {
 
+    // Remove error styling when user types
+    $("#serviceForm input").on("input", function () {
+        $(this).css({
+            "border": "",
+            "background-color": "",
+            "box-shadow": ""
+        });
+    });
+
+    // Register button click
     $("#btnRegister").click(function () {
 
         const name = $("#txtService").val().trim();
         const description = $("#txtDescription").val().trim();
         const price = $("#txtPrice").val().trim();
 
-
         let isValid = true;
 
-        // Reset styles first
-        $("input").css({
+        // Reset all styling first
+        $("#serviceForm input").css({
             "border": "",
             "background-color": "",
             "box-shadow": ""
@@ -52,29 +61,36 @@ $(document).ready(function () {
             });
             isValid = false;
         }
-        
-        // If valid
+
         if (isValid) {
 
             const newService = new Service(name, description, price);
             services.push(newService);
 
-            console.log("Service Registered:", newService);
+            console.log("Registered:", newService);
 
-            // Reset form
             $("#serviceForm")[0].reset();
 
-            // Remove all styling
-            $("input").css({
+            // Remove styling after success
+            $("#serviceForm input").css({
                 "border": "",
                 "background-color": "",
                 "box-shadow": ""
             });
         }
-        
+    });
+
+    // Reset button fix
+    $("#serviceForm").on("reset", function () {
+        $("#serviceForm input").css({
+            "border": "",
+            "background-color": "",
+            "box-shadow": ""
+        });
     });
 
 });
+
 
 // ===============
 // Dark Mode
