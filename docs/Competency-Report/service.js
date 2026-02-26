@@ -1,13 +1,20 @@
+// ============================
 // Constructor
+// ============================
 function Service(name, description, price) {
     this.name = name;
     this.description = description;
     this.price = price;
 }
 
-const services = [];
+// ============================
+// Load from Local Storage
+// ============================
+let services = JSON.parse(localStorage.getItem("services")) || [];
 
 $(document).ready(function () {
+
+    displayServices();
 
     // Remove error styling when user types
     $("#serviceForm input").on("input", function () {
@@ -67,7 +74,10 @@ $(document).ready(function () {
             const newService = new Service(name, description, price);
             services.push(newService);
 
-            console.log("Registered:", newService);
+            // Save to Local Storage
+            localStorage.setItem("services", JSON.stringify(services));
+
+            displayServices();
 
             $("#serviceForm")[0].reset();
 
@@ -92,11 +102,48 @@ $(document).ready(function () {
 });
 
 
+// ============================
+// Display Services
+// ============================
+function displayServices() {
+
+    let tableBody = document.getElementById("servicesTableBody");
+    tableBody.innerHTML = "";
+
+    for (let i = 0; i < services.length; i++) {
+
+        let row = `
+            <tr>
+                <td>${services[i].name}</td>
+                <td>${services[i].description}</td>
+                <td>$${parseFloat(services[i].price).toFixed(2)}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" onclick="deleteService(${i})">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        `;
+
+        tableBody.innerHTML += row;
+    }
+}
+
+
+// ============================
+// Delete Service
+// ============================
+function deleteService(index) {
+    services.splice(index, 1);
+    localStorage.setItem("services", JSON.stringify(services));
+    displayServices();
+}
+
+
 // ===============
 // Dark Mode
 // ===============
 
-$("#changeModeButton").click(function(){
+$("#changeModeButton").click(function () {
     $("body").toggleClass("dark-mode");
-    
 });

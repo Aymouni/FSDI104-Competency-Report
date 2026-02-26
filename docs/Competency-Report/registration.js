@@ -1,3 +1,23 @@
+$(document).ready(function () {
+
+    let services = JSON.parse(localStorage.getItem("services")) || [];
+
+    let dropdown = $("#txtService");
+
+    dropdown.empty();
+    dropdown.append('<option value="">Select a service</option>');
+
+    services.forEach(function(service) {
+        dropdown.append(
+            `<option value="${service.name}">
+                ${service.name} - $${service.price}
+            </option>`
+        );
+    });
+
+});
+
+
 // Constructor
 function Pet(name, age, breed, gender, service) {
     this.name = name;
